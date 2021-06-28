@@ -12,10 +12,10 @@ import { Octicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
+import MainTabNavigator from './MainTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import Color from '../constants/Colors';
-import {} from '@react-navigation/material-top-nav'
+import {} from '@react-navigation/material-top-tabs'
 
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -37,27 +37,28 @@ function RootNavigator() {
     <Stack.Navigator screenOptions={{
       headerStyle: {
         backgroundColor: Color.light.tint,
-
+        shadowOpacity:0,
+        elevation:0,
       },
       headerTintColor: Color.light.background,
       headerTitleAlign: 'left',
       headerTitleStyle: {
         fontWeight: 'bold',
+        
+        
       }
-
-
     }}>
 
       <Stack.Screen
         name="Root"
-        component={BottomTabNavigator}
+        component={MainTabNavigator}
         options={{
-          title: "Whatssap",
+          title: "WhatsApp",
           headerRight: () => (
             <View style={{ flexDirection: 'row', width: 60, justifyContent: 'space-between', marginRight: 10 }}>
               <Octicons name="search" size={22} color={'white'} />
               <MaterialCommunityIcons name="dots-vertical" size={22} />
-            </View>
+            </View> 
           )
         }}
       />
